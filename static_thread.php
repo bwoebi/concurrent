@@ -1,5 +1,14 @@
 <?php
 
+/*
+* The class Context is an abstraction layer for Threads.
+* It introduces a global access to the thread base class at any time when passing $this to Data::init() when the thread is started.
+* The major change vs. a normal Thread is that you have to use a main() method instead of a run() method.
+*
+* The class Data is here a global shared variables storage. An only instance of it should be passed to every Context.
+* So you can access from everywhere the global shared variables, simply by using getData()->property_name
+*/
+
 abstract class Context extends Thread {
 	// container of the Stackable
 	public $data;
