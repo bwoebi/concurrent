@@ -5,8 +5,13 @@
 * It introduces a global access to the thread base class at any time when passing $this to Data::init() when the thread is started.
 * The major change vs. a normal Thread is that you have to use a main() method instead of a run() method.
 *
-* The class Data is here a global shared variables storage. An only instance of it should be passed to every Context.
+* The class Data is here a global shared variables storage. An same instance of it should be passed to every Context.
 * So you can access from everywhere the global shared variables, simply by using getData()->property_name
+*
+* An usage example would be not to have to pass the Data / Thread instance everywhere.
+* For example you have an often called static method. Then you don't want to pass every time your thread instance and pollute your code with loads of ", $this->data" in function / static method calls.
+*
+* Another advantage is that you can be sure of your structure throughout your code: $this->data / getData() is the global shared variable container; getThread() the thread-local variable container.
 */
 
 abstract class Context extends Thread {
