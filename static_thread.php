@@ -18,7 +18,7 @@ abstract class Context extends Thread {
 	* @param Data $stack an object Data or extending Data
 	* @param mixed ... optional arguments for an optional init function of the class extending this class
 	*/
-	public final function __construct (Data $stack) {
+	public final function __construct (Data $data) {
 		$args = func_get_args();
 		$this->data = array_shift($args);
 		call_user_func_array(array("static", "init"), $args);
