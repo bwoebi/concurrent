@@ -1,3 +1,5 @@
+<?php
+
 abstract class Context extends Thread {
 	// container of the Stackable
 	public $data;
